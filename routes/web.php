@@ -13,6 +13,39 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Route::get('/', function () {
+//     return 'Hello WPU!';
+// });
+
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+// Route::get('/', function () {
+//     return 'Halaman Home';
+// });
+
+// Route::get('/about', function () {
+//     return 'Halaman About';
+// });
+
+// Route::get('/blog', function () {
+//     return 'Halaman Blog';
+// });
+
+
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
+});
+
+Route::get('/about', function () {
+    return view('about', [
+        "name" => "Akhmad Faiz Abdulloh",
+        "email" => "akhmadfaizabdulloh@gmail.com",
+        "image" => "cute.jpeg"
+    ]);
+});
+
+Route::get('/blog', function () {
+    return view('posts');
 });
