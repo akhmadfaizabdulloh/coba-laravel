@@ -4,6 +4,7 @@
 
 Post::create([
     'title' => 'Judul Ketiga',
+    'category_id' => 3,
     'slug' => 'judul-ketiga',
     'excerpt' => 'Lorem, ipsum ketiga',
     'body' => '<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Recusandae eius neque qui natus porro architecto, ea, ratione libero deserunt optio ipsum, voluptate id exercitationem. Sunt veritatis iste saepe reprehenderit cupiditate repellat, maxime quam!</p><p>Cupiditate temporibus laudantium enim quaerat a quidem veniam quos saepe dolorem iusto, reiciendis maxime quas sequi impedit assumenda, tempora distinctio qui tenetur quam nostrum, obcaecati ipsam odit animi omnis! Voluptates possimus, illo iusto in tempore sint quidem nemo.</p><p>Incidunt cum rem molestias maxime temporibus aliquam! Veritatis debitis impedit illum accusantium quidem laudantium odit id possimus obcaecati molestias ratione quod, deleniti quasi nesciunt eveniet soluta nobis consequatur? Fugiat obcaecati dicta ipsa laboriosam id aliquam itaque illo, adipisci unde atque illum aut sit nihil accusamus sapiente quidem, quisquam sint ex ab? Soluta voluptatem repellat reiciendis non autem laborum dolorum id obcaecati corporis repudiandae, sunt tenetur nam modi est officiis?</p>'
@@ -16,3 +17,14 @@ Post::create([
     'excerpt' => 'lorem10',
     'body' => '<p>Lorem, ipsum </p><p>Cupiditate</p>'
 ])
+
+
+Category::create([
+	'name' => 'Web Design',
+	'slug' => 'web-design'
+	])
+
+Category::create([
+	'name' => 'Personal',
+	'slug' => 'personal'
+	])

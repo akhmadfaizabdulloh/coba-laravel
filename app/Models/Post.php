@@ -15,4 +15,10 @@ class Post extends Model
     // boleh di isi, kecuali ...
     protected $guarded = ['id'];
 
+    // menghubungkan dengan tabel/model category (relasi)
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
+    // belongsTo = 1 post hanya memiliki 1 kategori
 }
