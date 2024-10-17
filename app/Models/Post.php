@@ -21,4 +21,11 @@ class Post extends Model
         return $this->belongsTo(Category::class);
     }
     // belongsTo = 1 post hanya memiliki 1 kategori
+    
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+    // 1 post hanya di miliki 1 user
+
 }
