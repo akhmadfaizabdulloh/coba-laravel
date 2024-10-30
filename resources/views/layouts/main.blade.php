@@ -22,5 +22,28 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
+    {{-- <script>
+      let cache = {}; // Simpan URL gambar yang sudah didapatkan
+
+      function getRandomImage(width, height) {
+        const key = `${width}x${height}`;
+
+        if (cache[key]) {
+          imageElement.src = cache[key];
+          return;
+        }
+
+        axios.get(`https://api.unsplash.com/photos/random?client_id=${apiKey}&w=${1200}&h=${400}`)
+          .then(response => {
+            imageElement.src = response.data.urls.regular;
+            cache[key] = response.data.urls.regular;
+          })
+          .catch(error => {
+            console.error('Error fetching image:', error);
+          });
+      }
+    </script> --}}
+  
+
   </body>
 </html>

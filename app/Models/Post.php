@@ -14,6 +14,7 @@ class Post extends Model
 
     // boleh di isi, kecuali ...
     protected $guarded = ['id'];
+    protected $with = ['category','author'];
 
     // menghubungkan dengan tabel/model category (relasi)
     public function category()
