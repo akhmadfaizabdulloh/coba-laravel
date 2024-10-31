@@ -45,7 +45,7 @@
 
                         <img src="/img/{{ $post->category->slug }}.jpg" class="card-img-top" alt="{{ $post->category->name }}">
                         <div class="card-body">
-                            <h5 class="card-title">{{ $post->title }}</h5>
+                            <h5 class="card-title"><a href="/posts/{{ $post->slug }}" class="text-decoration-none text-dark">{{ $post->title }}</a></h5>
                             <p>
                                 <small class="text-muted">
                                 By. <a href="/authors/{{ $post->author->username }}" class="text-decoration-none">{{ $post->author->name }}</a> 
