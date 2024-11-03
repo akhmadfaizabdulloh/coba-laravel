@@ -33,5 +33,13 @@ class Post extends Model
     {
         return $this->belongsTo(User::class, 'user_id');
     }
+
+    public function scopeFilter($query)
+    {
+        if (request('search')) {
+            return $query->where('title', 'like', '%' . request('search') . '%')
+                  ->orWhere('body', 'like', '%' . request('search') . '%');
+        }
+    }
     
 }

@@ -11,19 +11,21 @@ class PostController extends Controller
     {
         // dd(request('search')); //testing nangkep input search
 
-        $posts = Post::latest();
+        // $posts = Post::latest();
 
-        if (request('search')) {
-            $posts->where('title', 'like', '%' . request('search') . '%')
-                  ->orWhere('body', 'like', '%' . request('search') . '%');
-        }
+        // if (request('search')) {
+        //     $posts->where('title', 'like', '%' . request('search') . '%')
+        //           ->orWhere('body', 'like', '%' . request('search') . '%');
+        // }
 
         return view('posts', [
             "title" => "All Posts",
             "active" => 'posts',
             // "posts" => Post::all()
             // "posts" => Post::latest()->get()
-            "posts" => $posts->get()
+            // "posts" => $posts->get()
+            "posts" => Post::latest()->filter()->get()
+
         ]);
     }
 
