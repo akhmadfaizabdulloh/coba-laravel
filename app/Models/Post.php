@@ -34,12 +34,25 @@ class Post extends Model
         return $this->belongsTo(User::class, 'user_id');
     }
 
-    public function scopeFilter($query)
+    // public function scopeFilter($query)
+    // {
+    //     if (request('search')) {
+    //         return $query->where('title', 'like', '%' . request('search') . '%')
+    //               ->orWhere('body', 'like', '%' . request('search') . '%');
+    //     }
+    // }
+
+    public function scopeFilter($query, array $filters)
     {
-        if (request('search')) {
-            return $query->where('title', 'like', '%' . request('search') . '%')
-                  ->orWhere('body', 'like', '%' . request('search') . '%');
-        }
+        // if (isset($filters['search']) ? $filters['search'] : false) {
+        //     return $query->where('title', 'like', '%' . $filters['search'] . '%')
+        //           ->orWhere('body', 'like', '%' . $filters['search'] . '%');
+        // }
+
+        $query->when($filters['search'] ?? false, function($query, $search) {
+            return $query->where('title', 'like', '%' . $search . '%')
+                        ->orWhere('body', 'like', '%' . $search . '%');
+        });
     }
     
 }

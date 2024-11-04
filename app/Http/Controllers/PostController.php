@@ -24,8 +24,8 @@ class PostController extends Controller
             // "posts" => Post::all()
             // "posts" => Post::latest()->get()
             // "posts" => $posts->get()
-            "posts" => Post::latest()->filter()->get()
-
+            // "posts" => Post::latest()->filter()->get()
+            "posts" => Post::latest()->filter(request(['search']))->get()
         ]);
     }
 
