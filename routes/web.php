@@ -1,8 +1,8 @@
 <?php
 
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\LoginController;
 use App\Models\Category;
-use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -86,3 +86,7 @@ Route::get('/categories', function() {
 //         'posts' => $author->posts->load('category', 'author'),
 //     ]);
 // });
+
+
+Route::get('/login', [LoginController::class, 'index']);
+
