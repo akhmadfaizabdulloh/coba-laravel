@@ -8,7 +8,8 @@
             {{-- <img class="mb-4" src="../assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"> --}}
             <h1 class="h3 mb-3 fw-normal text-center">Registration Form</h1>
 
-                <form>
+                <form action="/register" method="post">
+                    @csrf
           
                     <div class="form-floating">
                         <input type="text" name="name" class="form-control rounded-top" id="name" placeholder="Name">
