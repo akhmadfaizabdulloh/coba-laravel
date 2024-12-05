@@ -32,6 +32,8 @@ class DashboardPostController extends Controller
     public function create()
     {
         // untuk menampilkan halaman tambah postingan
+
+        return view('dashboard.posts.create');
     }
 
     /**
