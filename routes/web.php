@@ -104,8 +104,11 @@ Route::get('/dashboard', function() {
     return view('dashboard.index');
 })->middleware('auth');
 
+Route::get('/dashboard/posts/checkSlug', [DashboardPostController::class, 'checkSlug'])->middleware('auth');
+
 Route::resource('/dashboard/posts', DashboardPostController::class)->middleware('auth');
 
 // // tidak bisa masukin route model binding seperti ini {post:slug} untuk resource
 // Route::resource('/dashboard/posts/{post:slug}', DashboardPostController::class)->middleware('auth');
 // Route::get('/dashboard/posts/{post:slug}')
+
