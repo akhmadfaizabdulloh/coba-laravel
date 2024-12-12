@@ -51,6 +51,9 @@ class DashboardPostController extends Controller
     public function store(Request $request)
     {
         // untuk menjalankan fungsi tambah-nya
+
+        return $request;
+        
     }
 
     /**

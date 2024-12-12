@@ -10,6 +10,22 @@
     
     <!-- Custom styles for this template -->
     <link href="/css/dashboard.css" rel="stylesheet">
+
+    {{-- Trix Editor CDN --}}
+      <link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@2.0.8/dist/trix.css">
+      <script type="text/javascript" src="https://unpkg.com/trix@2.0.8/dist/trix.umd.min.js"></script>
+
+    {{-- Trix Editor --}}
+    {{-- <link rel="stylesheet" type="text/css" href="/css/trix.css">
+    <script type="text/javascript" src="/js/trix.css"></script> --}}
+    {{-- Folder dist sudah tidak ada sekarang, Jadi pakai CDN aja --}}
+
+    <style>
+      trix-toolbar [data-trix-button-group="file-tools"]  {
+        display: none;
+      }
+    </style>
+
   </head>
   <body>
     
