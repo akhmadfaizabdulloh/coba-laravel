@@ -52,8 +52,14 @@ class DashboardPostController extends Controller
     {
         // untuk menjalankan fungsi tambah-nya
 
-        return $request;
+        // return $request;
         
+        $validatedData = $request->validate([
+            'title' => 'required|max:255',
+            'slug' => 'required|unique:posts',
+            'category_id' => 'required',
+            'body' => 'required'
+        ]);
     }
 
     /**
