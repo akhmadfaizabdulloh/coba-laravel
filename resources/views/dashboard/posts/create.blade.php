@@ -8,7 +8,7 @@
 
 <div class="col-lg-8">
 
-    <form method="POST" action="/dashboard/posts">
+    <form method="POST" action="/dashboard/posts" class="mb-5">
       @csrf
 
         <div class="mb-3">
@@ -25,7 +25,7 @@
 
         <div class="mb-3">
           <label for="slug" class="form-label">Slug</label>
-          <input type="text" class="form-control @error('slug') is-invalid @enderror" id="slug" name="slug" value="{{ old('slug') }}" disabled readonly required>
+          <input type="text" class="form-control @error('slug') is-invalid @enderror" id="slug" name="slug" value="{{ old('slug') }}" readonly required>
 
           @error('slug')
               <div class="invalid-feedback">
@@ -67,6 +67,8 @@
           <input id="x" type="hidden" name="content">
           <trix-editor input="x"></trix-editor>
         </form> --}}
+
+        {{-- <script>alert('hahaha');</script> --}}
 
         <button type="submit" class="btn btn-primary">Create Post</button>
         
