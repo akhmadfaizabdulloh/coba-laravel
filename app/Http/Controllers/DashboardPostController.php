@@ -55,6 +55,13 @@ class DashboardPostController extends Controller
 
         // return $request;
         
+        // ddd($request);
+        
+        // return $request->file('image_post')->store('post-image'); 
+        //file (apapun) bernama 'image_post' akan di simpan di folder 'post-image'
+
+        // script dibawahnya tidak akan di jalankan.
+
         $validatedData = $request->validate([
             'title' => 'required|max:255',
             'slug' => 'required|unique:posts',
