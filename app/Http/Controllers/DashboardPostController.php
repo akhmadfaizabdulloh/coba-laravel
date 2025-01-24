@@ -66,8 +66,17 @@ class DashboardPostController extends Controller
             'title' => 'required|max:255',
             'slug' => 'required|unique:posts',
             'category_id' => 'required',
+            'image_post' => 'image|file|max:1024', //maximal 1 MB
             'body' => 'required'
         ]);
+
+        if($request->file('image_post')) {
+            $validatedData['image_post'] = $request->file('image_post')->store('post-images');
+        }
+
+        // kalau request dari file yang namanya 'image_post' itu ada isinya (true),
+        // maka kita akan nambahin 1 buah $validatedData lagi (image), yang di isi dengan uplaoad gambarnya,
+        // sekaligus ambil nama gambarnya. kemudian kita store()
 
         $validatedData['user_id'] = auth()->user()->id;
         $validatedData['excerpt'] = Str::limit(strip_tags($request->body), 200);
