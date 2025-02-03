@@ -22,7 +22,15 @@
 
                 </form>
 
-                <img src="/img/{{ $post->category->slug }}.jpg" width="1200" height="400" style="object-fit: cover; object-position: center;" class="img-fluid mt-3" alt="{{ $post->category->name }}">
+
+                @if ($post->image)
+                    {{-- <div style="max-height: 350px; overflow:hidden;"> --}}
+                        <img src="{{ asset('storage/' . $post->image) }}" width="1200" height="400" style="object-fit: cover; object-position: center;" class="img-fluid mt-3" alt="{{ $post->category->name }}">
+                    {{-- </div> --}}
+                @else
+                    <img src="/img/{{ $post->category->slug }}.jpg" width="1200" height="400" style="object-fit: cover; object-position: center;" class="img-fluid mt-3" alt="{{ $post->category->name }}">
+                @endif
+
 
                 <article class="my-3 fs-5">
                     {!! $post->body !!}

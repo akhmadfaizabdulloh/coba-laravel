@@ -66,12 +66,12 @@ class DashboardPostController extends Controller
             'title' => 'required|max:255',
             'slug' => 'required|unique:posts',
             'category_id' => 'required',
-            'image_post' => 'image|file|max:1024', //maximal 1 MB
+            'image' => 'image|file|max:1024', //maximal 1 MB
             'body' => 'required'
         ]);
 
         if($request->file('image_post')) {
-            $validatedData['image_post'] = $request->file('image_post')->store('post-images');
+            $validatedData['image'] = $request->file('image_post')->store('post-images');
         }
 
         // kalau request dari file yang namanya 'image_post' itu ada isinya (true),
