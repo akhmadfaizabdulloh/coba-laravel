@@ -56,6 +56,8 @@ class DashboardPostController extends Controller
         // return $request;
         
         // ddd($request);
+
+        // dd($request->file('image_post'));
         
         // return $request->file('image_post')->store('post-image'); 
         //file (apapun) bernama 'image_post' akan di simpan di folder 'post-image'
@@ -66,7 +68,7 @@ class DashboardPostController extends Controller
             'title' => 'required|max:255',
             'slug' => 'required|unique:posts',
             'category_id' => 'required',
-            'image' => 'image|file|max:1024', //maximal 1 MB
+            'image_post' => 'image|file|max:1024', //maximal 1 MB
             'body' => 'required'
         ]);
 
@@ -138,6 +140,9 @@ class DashboardPostController extends Controller
             'title' => 'required|max:255',
             // 'slug' => 'required|unique:posts',
             'category_id' => 'required',
+
+            'image_post' => 'image|file|max:1024', //maximal 1 MB
+
             'body' => 'required'
         ];
 
@@ -149,6 +154,12 @@ class DashboardPostController extends Controller
 
         $validatedData['user_id'] = auth()->user()->id;
         $validatedData['excerpt'] = Str::limit(strip_tags($request->body), 200);
+
+        // upload foto setelah validasinya lolos
+        if($request->file('image_post')) {
+            $validatedData['image'] = $request->file('image_post')->store('post-images');
+        }
+
 
         Post::where('id', $post->id)
             ->update($validatedData);

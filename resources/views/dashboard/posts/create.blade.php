@@ -36,7 +36,7 @@
         </div>
 
         <div class="mb-3">
-          <label for="category" class="form-label">Slug</label>
+          <label for="category" class="form-label">Category</label>
           <select class="form-select" name="category_id">
 
             @foreach ($categories as $category)
