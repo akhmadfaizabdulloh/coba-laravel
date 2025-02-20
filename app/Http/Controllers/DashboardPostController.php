@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use App\Models\Category;
+// use Clockwork\Storage\Storage;
 use Illuminate\Http\Request;
 use \Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 
 class DashboardPostController extends Controller
 {
@@ -157,9 +159,18 @@ class DashboardPostController extends Controller
 
         // upload foto setelah validasinya lolos
         if($request->file('image_post')) {
+
+            // disini kita hapus dulu gambar yang lama disini
+            if ($request->oldImage) {
+                Storage::delete($request->oldImage);
+            }
+
+            // kemudian baru kita upload gambar yang baru 
             $validatedData['image'] = $request->file('image_post')->store('post-images');
         }
 
+        // Hapus `image_post` agar tidak dikirim ke database
+        unset($validatedData['image_post']);
 
         Post::where('id', $post->id)
             ->update($validatedData);
@@ -176,6 +187,10 @@ class DashboardPostController extends Controller
     public function destroy(Post $post)
     {
         // untuk delete postingannya
+
+        if ($post->image) {
+            Storage::delete($post->image);
+        }
 
         Post::destroy($post->id);
         return redirect('dashboard/posts')->with('success', 'Post has been deleted!');

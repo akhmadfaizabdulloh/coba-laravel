@@ -59,6 +59,9 @@
         <div class="mb-3">
           <label for="image_post" class="form-label">Post Image</label>
 
+          {{-- INPUT HIDDEN UNTUK IMAGE LAMA --}}
+          <input type="hidden" name="oldImage" value="{{ $post->image }}">
+
           @if ($post->image)
 
             <img src="{{ asset('storage/' . $post->image) }}" class="img-preview img-fluid mb-3 col-sm-5 d-block">
