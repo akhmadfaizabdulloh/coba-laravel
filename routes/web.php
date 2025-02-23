@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminCategoryController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DashboardPostController;
 use App\Http\Controllers\PostController;
@@ -112,3 +113,4 @@ Route::resource('/dashboard/posts', DashboardPostController::class)->middleware(
 // Route::resource('/dashboard/posts/{post:slug}', DashboardPostController::class)->middleware('auth');
 // Route::get('/dashboard/posts/{post:slug}')
 
+Route::resource('/dashboard/categories', AdminCategoryController::class)->except('show');
