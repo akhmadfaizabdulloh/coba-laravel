@@ -113,4 +113,4 @@ Route::resource('/dashboard/posts', DashboardPostController::class)->middleware(
 // Route::resource('/dashboard/posts/{post:slug}', DashboardPostController::class)->middleware('auth');
 // Route::get('/dashboard/posts/{post:slug}')
 
-Route::resource('/dashboard/categories', AdminCategoryController::class)->except('show');
+Route::resource('/dashboard/categories', AdminCategoryController::class)->except('show')->middleware('auth');
