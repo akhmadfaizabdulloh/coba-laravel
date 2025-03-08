@@ -16,6 +16,30 @@ class AdminCategoryController extends Controller
     {
         // untuk testing.
         // return 'ini adalah halaman categories';
+
+        // // jika belum login, maka forbidden
+        // if(auth()->guest()) {
+        //     abort(403);
+        // }
+
+        // // jika bukan halofaizabd, maka forbidden juga
+        // if(auth()->user()->username !== 'halofaizabd') {
+        //     abort(403);
+        // }
+
+        // // jika kita gabungkan menjadi seperti ini
+        // if(auth()->guest() || auth()->user()->username !== 'halofaizabd') {
+        //     abort(403);
+        // }
+
+        // // kita juga bisa menggunakan check() dengan NOT di depannya
+        // if(!auth()->check() || auth()->user()->username !== 'halofaizabd') {
+        //     abort(403);
+        // }
+
+        // Jika menggunakan GATE
+        $this->authorize('admin');
+
         return view('dashboard.categories.index', [
             'categories' => Category::all()
         ]);
