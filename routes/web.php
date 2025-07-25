@@ -7,6 +7,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Models\Category;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
@@ -114,3 +115,14 @@ Route::resource('/dashboard/posts', DashboardPostController::class)->middleware(
 // Route::get('/dashboard/posts/{post:slug}')
 
 Route::resource('/dashboard/categories', AdminCategoryController::class)->except('show');
+
+
+// Route::get('/storage-link', function() {
+//     Artisan::call('storage:link');
+// });
+
+// chatGPT
+Route::get('/storage-link', function () {
+    exec('php artisan storage:link');
+    return 'Storage linked!';
+});
